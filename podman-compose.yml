@@ -1,0 +1,10 @@
+services:
+  tts:
+    build:
+      context: ./services/tts
+      dockerfile: Containerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - TTS_HOST=0.0.0.0
+      - TTS_PORT=8080

@@ -1,0 +1,19 @@
+# Generic starter Containerfile for Eartrumpet services
+# Build stage
+FROM registry.access.redhat.com/hi/python:3.14-builder AS build
+USER root
+RUN dnf -y install busybox
+RUN python3 -m venv /opt/venv
+COPY requirements.txt .
+RUN /opt/venv/bin/pip install --no-cache-dir -r requirements.txt
+USER ${CONTAINER_DEFAULT_USER}
+
+# Runtime stage
+FROM registry.access.redhat.com/hi/python:3.14
+
+COPY --from=build /opt/venv /opt/venv
+COPY --from=build /bin/busybox /bin/busybox
+COPY --from=build /bin/sh /bin/sh
+
+WORKDIR /app
+EXPOSE 8080
