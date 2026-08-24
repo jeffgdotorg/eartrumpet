@@ -4,7 +4,7 @@ Nothing too serious. It's a hackathon project!
 ### What it's for
 Do you subscribe to newsletters that arrive only as text? Are your retinas overworked and your ears chronically bored?
 
-Eartrumpet turns text items from a source RSS feed into audio items in a podcast feed. The whole setup is containerized and elf-hosted. No data is sent to a third party.
+Eartrumpet turns text items from source RSS feeds into audio items in podcast feeds. The whole setup is containerized and self-hosted. No data is sent to a third party.
 
 ### Component services
 - `config`: Manages source and destination feeds, per-feed settings, and global settings
