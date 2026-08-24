@@ -1,4 +1,10 @@
-venv
 .env
-*.mp3
-*.txt
+
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+.venv
+venv
