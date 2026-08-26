@@ -2,10 +2,12 @@
 FROM registry.access.redhat.com/hi/python:3.14-builder AS build
 USER root
 RUN dnf -y install busybox
+RUN /bin/busybox --install
 RUN python3 -m venv /opt/venv
 COPY requirements.txt .
 RUN /opt/venv/bin/pip install --no-cache-dir -r requirements.txt
 USER ${CONTAINER_DEFAULT_USER}
+RUN /opt/venv/bin/python3 /opt/venv/bin/supertonic download
 
 # Runtime stage
 FROM registry.access.redhat.com/hi/python:3.14
@@ -16,6 +18,7 @@ LABEL name="eartrumpet-tts" \
       io.k8s.description="Renders a text artifact into an audio artifact" \
       io.openshift.expose-services="8080:http"
 COPY --from=build /opt/venv /opt/venv
+COPY --from=build /tmp/.cache/supertonic3 /tmp/.cache/supertonic3 
 COPY --from=build /bin/busybox /bin/busybox
 COPY --from=build /bin/sh /bin/sh
 
