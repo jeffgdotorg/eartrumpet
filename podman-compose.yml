@@ -8,3 +8,21 @@ services:
     environment:
       - TTS_HOST=0.0.0.0
       - TTS_PORT=8080
+  prepare:
+    build:
+      context: ./services/prepare
+      dockerfile: Containerfile
+    ports:
+      - "8081:8080"
+    environment:
+      - PREPARE_HOST=0.0.0.0
+      - PREPARE_PORT=8080
+  intake:
+    build:
+      context: ./services/intake
+      dockerfile: Containerfile
+    ports:
+      - "8082:8080"
+    environment:
+      - INTAKE_HOST=0.0.0.0
+      - INTAKE_PORT=8080
