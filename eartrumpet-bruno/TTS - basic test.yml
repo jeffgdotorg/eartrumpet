@@ -10,10 +10,10 @@ http:
     type: json
     data: |-
       {
-        "text": "This is a test of the Eartrumpet TTS service",
-        "voice": "F1",
+        "voice": "M2",
         "lang": "en",
-        "response_format": "ogg"
+        "response_format": "ogg",
+        "text": "Back in November of two thousand and twenty-four, my father (who is now eighty-six) moved in with us. We are lucky enough to have a house with a basement apartment, and after my mother died we were able to take him in.\\n\\nAs an older person he has certain needs, so I’ve been looking for technology that could help out with taking care of him. At first I just wanted to get a couple of low cost buttons that he could press to send me a notification. I could put one next to his bed, next to his chair, next to his desk and in the bathroom, etc., and if he needed me he could just hit the button and I would get a notice.\\n\\nThis search led me to Sonoff and their Zigbee -enabled devices."
       }
   auth: inherit
 

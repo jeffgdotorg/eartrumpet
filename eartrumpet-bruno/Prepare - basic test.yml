@@ -8,7 +8,7 @@ http:
   url: http://127.0.0.1:8081/prepare
   body:
     type: text
-    data: How about this for a $5 input text?
+    data: Back in November of 2024, my father (who is now 86) moved in with us. We are lucky enough to have a house with a basement apartment, and after my mother died we were able to take him in.\n\nAs an older person he has certain needs, so I’ve been looking for technology that could help out with taking care of him. At first I just wanted to get a couple of low cost buttons that he could press to send me a notification. I could put one next to his bed, next to his chair, next to his desk and in the bathroom, etc., and if he needed me he could just hit the button and I would get a notice.\n\nThis search led me to Sonoff and their Zigbee -enabled devices.
   auth: inherit
 
 settings:
