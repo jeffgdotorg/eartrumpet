@@ -1,4 +1,4 @@
-# Generic starter Containerfile for Eartrumpet services
+# Containerfile for Eartrumpet intake service
 # Build stage
 FROM registry.access.redhat.com/hi/python:3.14-builder AS build
 USER root
@@ -15,5 +15,8 @@ COPY --from=build /opt/venv /opt/venv
 COPY --from=build /bin/busybox /bin/busybox
 COPY --from=build /bin/sh /bin/sh
 
+EXPOSE 8082
 WORKDIR /app
-EXPOSE 8080
+COPY eartrumpet-intake.py .
+
+CMD  ["/opt/venv/bin/python3", "-m", "flask", "--app=eartrumpet-intake", "run", "--host=0.0.0.0", "--port=8080"]
